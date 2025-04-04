@@ -14,3 +14,12 @@
     --color-red: #E22828;
     --color-green: #009E23;
 }
+
+/* NAVBAR */
+.nav-item{
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-item:hover{
+    text-shadow: 5px 3px #FE556F;
+}
