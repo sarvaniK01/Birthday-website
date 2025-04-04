@@ -1,16 +1,12 @@
 import Link from 'next/link';
 
-import Hero from '../Hero';
-import Navbar from '../Navbar';
-import Footer from '../Footer';
+import OverTheYears from '@/components/HomePage/OverTheYears';
+import MainTemplate from "@/components/MainTemplate"
 
 const MainPage = () => {
     return (
         <div>
-            {/* <Hero /> */}
-            <Navbar />
-            {/* HomePage */}
-            {/* <Footer /> */}
+            <MainTemplate  childPage={OverTheYears}/>
         </div>
     )
 }

@@ -11,6 +11,7 @@
     --color-black: #281616;
     --color-darkPink: #FE556F;
     --color-lightPink: #FF8C9E;
+    --color-lightestPink: #FFC8D1;
     --color-red: #E22828;
     --color-green: #009E23;
 }
@@ -22,4 +23,14 @@
 
 .nav-item:hover{
     text-shadow: 5px 3px #FE556F;
+}
+
+@layer base {
+    .font-outline-5 {
+        -webkit-text-stroke: 3px #FE556F;
+    }
+
+    .font-outline-10 {
+        -webkit-text-stroke: 10px #FE556F;
+    }
 }

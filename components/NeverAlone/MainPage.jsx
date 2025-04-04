@@ -1,16 +1,12 @@
 import Link from 'next/link';
 
-import Hero from '../Hero';
-import Navbar from '../Navbar';
-import Footer from '../Footer';
+import Footer from '@/components/Footer';
+import MainTemplate from "@/components/MainTemplate"
 
 const MainPage = () => {
     return (
         <div>
-            <Hero />
-            <Navbar />
-            Never Alone
-            <Footer />
+            <MainTemplate  childPage={Footer}/>
         </div>
     )
 }
