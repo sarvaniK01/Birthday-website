@@ -25,6 +25,15 @@
     text-shadow: 5px 3px #FE556F;
 }
 
+/* FOOTER */
+.footer-item {
+    transition: all 0.3s ease-in-out;
+}
+
+.footer-item:hover {
+    text-shadow: 5px 3px #FFC8D1;
+}
+
 @layer base {
     .font-outline-5 {
         -webkit-text-stroke: 3px #FE556F;

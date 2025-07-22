@@ -14,20 +14,21 @@ import Img1 from "@/public/images/HeroImages/Image1.png";
 const HeroComponent = () => {
   const [offset, setOffset] = useState(0);
   const [canScrollDown, setCanScrollDown] = useState(false);
-   const [skipped, setSkipped] = useState(false);
+  const [skipped, setSkipped] = useState(false);
 
   const minOffset = -3200; // Adjust based on text length
   const maxOffset = 0; // Start position
 
   useEffect(() => {
-    const handleScroll = (event) => {
-      // if (skipped) {
-      //   window.scrollTo({ top: 0, behavior: "smooth" });
-      // }; figure this out
+    document.body.style.overflow = "auto";
+  }, []);
 
-      if (canScrollDown && event.deltaY < 0) {
+  useEffect(() => {
+    const handleScroll = (event) => {
+      if (canScrollDown && event.deltaY < 0 && window.scrollY <= 10) {
         setCanScrollDown(false);
         document.body.style.overflow = "hidden";
+        window.scrollTo({ top: 0 });
       }
 
       if (!canScrollDown) {
@@ -62,18 +63,19 @@ const HeroComponent = () => {
     return () => {
       window.removeEventListener("wheel", handleScroll);
       window.removeEventListener("keydown", handleScroll);
+      document.body.style.overflow = "auto";
     };
   }, [offset, canScrollDown, skipped]);
 
   const skipHero = () => {
     setSkipped(true);
-    setCanScrollDown(true); // Allow vertical scrolling
-    // document.body.style.overflow = "auto";
+    setOffset(minOffset);
 
-    // Scroll to Navbar
     setTimeout(() => {
+      setCanScrollDown(true);
+      document.body.style.overflow = "auto";
       window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-    }, 100);
+    }, 900);
   };
 
   return (
@@ -92,21 +94,21 @@ const HeroComponent = () => {
           </div>
         </motion.h1>
         <motion.div
-          className="absolute  z-10 top-[50%] translate-y-[-50%] ml-[5rem]"
+          className="absolute z-10 top-[50%] translate-y-[-50%] ml-[5rem]"
           animate={{ x: offset }}
           transition={{ type: "tween", ease: "easeOut", duration: 0.57 }}
         >
           <div className="flex flex-row gap-[20rem]">
-            <Image src={Img1} alt="Hero-image-1"/>
-            <Image src={Img1} alt="Hero-image-1"/>
-            <Image src={Img1} alt="Hero-image-1"/>
-            <Image src={Img1} alt="Hero-image-1"/>
-            <Image src={Img1} alt="Hero-image-1"/>
+            <Image src={Img1} alt="Hero-image-1" />
+            <Image src={Img1} alt="Hero-image-1" />
+            <Image src={Img1} alt="Hero-image-1" />
+            <Image src={Img1} alt="Hero-image-1" />
+            <Image src={Img1} alt="Hero-image-1" />
           </div>
         </motion.div>
       </div>
     </div>
   );
-}
+};
 
 export default HeroComponent;

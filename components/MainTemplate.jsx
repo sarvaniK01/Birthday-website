@@ -4,15 +4,15 @@ import Hero from '@/components/HeroComponent'
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
-const MainPage = ({childPage: Child}) => {
+const MainTemplate = ({ children }) => {
     return (
         <div>
             <Hero />
             <Navbar />
-            {Child && <Child />} 
+            {children} 
             <Footer />
         </div>
     )
 }
 
-export default MainPage;
+export default MainTemplate;
